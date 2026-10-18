@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora | Weather App</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Weather Specific Stylesheet -->
+  <link rel="stylesheet" href="css/weather.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-brand">
+        <span>⚡ Nexora</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+        <li><a href="weather.html" class="nav-link active">🌤️ Weather App</a></li>
+        <li><a href="movies.html" class="nav-link">🎬 Movie Search</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <div class="weather-wrapper">
+      
+      <!-- Hero Section -->
+      <section class="hero">
+        <span class="hero-badge">Real-Time Forecast</span>
+        <h1 class="hero-title">Live Weather Tracker</h1>
+        <p class="hero-desc">
+          Search any city worldwide to inspect real-time temperature, condition status, humidity, and wind speed.
+        </p>
+      </section>
+
+      <!-- Search Form -->
+      <form id="weather-form" class="search-form" autocomplete="off">
+        <input 
+          type="text" 
+          id="city-input" 
+          class="search-input" 
+          placeholder="Enter city name (e.g., London, Tokyo, Mumbai)..." 
+          required
+        >
+        <button type="submit" class="btn btn-primary" id="search-btn">
+          🔍 Search
+        </button>
+        <button type="button" class="btn btn-secondary" id="location-btn" title="Use current GPS location">
+          📍 Location
+        </button>
+      </form>
+
+      <!-- Quick City Suggestions -->
+      <div class="quick-chips">
+        <span class="quick-chips-label">Quick picks:</span>
+        <button type="button" class="chip-btn" data-city="London">London</button>
+        <button type="button" class="chip-btn" data-city="New York">New York</button>
+        <button type="button" class="chip-btn" data-city="Tokyo">Tokyo</button>
+        <button type="button" class="chip-btn" data-city="Mumbai">Mumbai</button>
+        <button type="button" class="chip-btn" data-city="Paris">Paris</button>
+        <button type="button" class="chip-btn" data-city="Sydney">Sydney</button>
+      </div>
+
+      <!-- Error Alert Box -->
+      <div id="alert-box" class="alert-box alert-danger hidden" role="alert">
+        <span>⚠️</span>
+        <span id="alert-message">Something went wrong.</span>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div id="loading-spinner" class="spinner-container hidden">
+        <div class="spinner"></div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Fetching real-time weather...</p>
+      </div>
+
+      <!-- Unit Toggle (°C / °F) -->
+      <div class="unit-toggle-wrapper">
+        <button type="button" id="unit-toggle-btn" class="unit-toggle-btn">
+          Switch to °F
+        </button>
+      </div>
+
+      <!-- Weather Result Display Card -->
+      <article id="weather-card" class="weather-card hidden">
+        
+        <!-- City and Date Header -->
+        <div class="weather-header">
+          <div class="city-info">
+            <h2>
+              <span id="city-name">--</span>
+              <span id="country-code" class="country-badge">--</span>
+            </h2>
+            <div id="city-date" class="city-date">--</div>
+          </div>
+        </div>
+
+        <!-- Main Temperature and Icon Display -->
+        <div class="weather-main">
+          <div class="weather-icon-wrapper" id="weather-icon">
+            ☀️
+          </div>
+          <div class="temp-display">
+            <span class="current-temp" id="current-temp">--°C</span>
+            <span class="weather-description" id="weather-desc">--</span>
+          </div>
+        </div>
+
+        <!-- Additional Weather Metrics Grid -->
+        <div class="weather-grid">
+          
+          <div class="detail-item">
+            <div class="detail-icon">🌡️</div>
+            <div class="detail-label">Feels Like</div>
+            <div class="detail-value" id="feels-like">--</div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">💧</div>
+            <div class="detail-label">Humidity</div>
+            <div class="detail-value" id="humidity">--</div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">💨</div>
+            <div class="detail-label">Wind Speed</div>
+            <div class="detail-value" id="wind-speed">--</div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">☁️</div>
+            <div class="detail-label">Condition</div>
+            <div class="detail-value" id="cloud-cover" style="font-size: 0.95rem;">--</div>
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- Recent Searches (Saved in LocalStorage) -->
+      <section class="recent-searches">
+        <div class="recent-title">🕒 Your Recent Searches:</div>
+        <div id="recent-tags" class="recent-tags">
+          <!-- Dynamically populated by weather.js -->
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>@ All Rights Reserved Nexora</p>
+  </footer>
+
+  <!-- JavaScript File -->
+  <script src="js/weather.js"></script>
+</body>
+</html>

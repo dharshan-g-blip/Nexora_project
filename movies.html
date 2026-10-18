@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora | Movie Search</title>
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Movie Specific Stylesheet -->
+  <link rel="stylesheet" href="css/movies.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-brand">
+        <span>⚡ Nexora</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+        <li><a href="weather.html" class="nav-link">🌤️ Weather App</a></li>
+        <li><a href="movies.html" class="nav-link active">🎬 Movie Search</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="hero-title">Discover Movies &amp; Web Series</h1>
+      <p class="hero-desc">
+        Explore popular movies and web series with real-time ratings, cast, and release details.
+      </p>
+    </section>
+
+    <!-- Search Form -->
+    <form id="movie-form" class="search-form" autocomplete="off">
+      <input 
+        type="text" 
+        id="movie-input" 
+        class="search-input" 
+        placeholder="Search by title (e.g., Iron Man, Batman, Jumanji, Stranger Things)..." 
+        required
+      >
+      <button type="submit" class="btn btn-primary" id="search-btn">
+        🔍 Search
+      </button>
+    </form>
+
+    <!-- Filter Bar (Category: All, Movies, Web Series) -->
+    <div class="movie-filters">
+      <label for="type-filter" style="font-size: 0.9rem; color: var(--text-muted);">Category:</label>
+      <select id="type-filter" class="filter-select">
+        <option value="">All Categories</option>
+        <option value="movie">Movies</option>
+        <option value="series">Web Series</option>
+      </select>
+    </div>
+
+    <!-- Quick Search Chips -->
+    <div class="quick-chips">
+      <span class="quick-chips-label">Popular picks:</span>
+      <button type="button" class="chip-btn" data-movie="Iron Man">Iron Man</button>
+      <button type="button" class="chip-btn" data-movie="Avengers">Avengers</button>
+      <button type="button" class="chip-btn" data-movie="The Dark Knight">The Dark Knight</button>
+      <button type="button" class="chip-btn" data-movie="Spider-Man">Spider-Man</button>
+      <button type="button" class="chip-btn" data-movie="Jumanji">Jumanji</button>
+      <button type="button" class="chip-btn" data-movie="Pirates of the Caribbean">Pirates of the Caribbean</button>
+      <button type="button" class="chip-btn" data-movie="Interstellar">Interstellar</button>
+      <button type="button" class="chip-btn" data-movie="Stranger Things">Stranger Things</button>
+    </div>
+
+    <!-- Error Alert Box -->
+    <div id="alert-box" class="alert-box alert-danger hidden" role="alert">
+      <span>⚠️</span>
+      <span id="alert-message">Something went wrong.</span>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner-container hidden">
+      <div class="spinner" style="border-top-color: #f59e0b;"></div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Loading titles...</p>
+    </div>
+
+    <!-- Results Header -->
+    <div id="results-header" class="results-header hidden">
+      <div id="results-count" class="results-count">Showing results</div>
+    </div>
+
+    <!-- Movie Cards Grid Container -->
+    <section id="movies-grid" class="movies-grid">
+      <!-- Dynamically filled with movie cards by movies.js -->
+    </section>
+
+  </main>
+
+  <!-- Movie Details Modal Dialog -->
+  <div id="movie-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      
+      <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close details">
+        &times;
+      </button>
+
+      <div class="modal-poster-col">
+        <img id="modal-poster" src="" alt="Movie Poster" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x450?text=No+Poster';">
+      </div>
+
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamically populated with details by movies.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>@ All Rights Reserved Nexora</p>
+  </footer>
+
+  <!-- JavaScript File -->
+  <script src="js/movies.js"></script>
+</body>
+</html>

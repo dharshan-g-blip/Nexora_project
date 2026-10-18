@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora</title>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Specific styles for landing portal */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .project-card {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+    }
+
+    .project-card.movie-card-accent::before {
+      background: linear-gradient(90deg, #f59e0b, #ec4899);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(129, 140, 248, 0.4);
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .app-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .app-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .app-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .feature-list li {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      color: var(--secondary);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-brand">
+        <span>⚡ Nexora</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">🏠 Home</a></li>
+        <li><a href="weather.html" class="nav-link">🌤️ Weather App</a></li>
+        <li><a href="movies.html" class="nav-link">🎬 Movie Search</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="hero-title">
+        <span class="gradient-text">Nexora</span>
+      </h1>
+    </section>
+
+    <!-- Apps Showcase Cards -->
+    <section class="apps-grid">
+      
+      <!-- App 1: Weather App -->
+      <article class="glass-card project-card">
+        <div>
+          <span class="app-icon">🌤️</span>
+          <h2 class="app-title">Weather Forecast</h2>
+          <p class="app-desc">
+            Stay updated with live weather conditions and plan your day with accurate temperature and forecast updates.
+          </p>
+          <ul class="feature-list">
+            <li>Live temperature &amp; weather conditions</li>
+            <li>Real-time humidity and wind speed</li>
+            <li>Switch easily between &deg;C and &deg;F</li>
+            <li>Check forecasts for cities worldwide</li>
+          </ul>
+        </div>
+        <a href="weather.html" class="btn btn-primary" style="width: 100%;">
+          Check Weather &rarr;
+        </a>
+      </article>
+
+      <!-- App 2: Movie Search App -->
+      <article class="glass-card project-card movie-card-accent">
+        <div>
+          <span class="app-icon">🎬</span>
+          <h2 class="app-title">Movies &amp; Web Series</h2>
+          <p class="app-desc">
+            Discover great movies and popular web series to enjoy. Find ratings, release years, cast, and storyline details in one place.
+          </p>
+          <ul class="feature-list">
+            <li>Discover popular movies &amp; web series</li>
+            <li>Check IMDb and Rotten Tomatoes ratings</li>
+            <li>View cast, director &amp; storyline details</li>
+            <li>Explore action, comedy, adventure &amp; more</li>
+          </ul>
+        </div>
+        <a href="movies.html" class="btn btn-primary" style="background: linear-gradient(135deg, #d97706, #ec4899); box-shadow: 0 4px 14px 0 rgba(236, 72, 153, 0.4); width: 100%;">
+          Explore Movies &rarr;
+        </a>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>@ All Rights Reserved Nexora</p>
+  </footer>
+
+</body>
+</html>
